@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" comtent="IE=edege" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #0d0b1b;
+        color: white;
+        text-align: center;
+        height: 80%;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        transition: color 0.3s;
+      }
+      nav ul li a:hover {
+        color: #ff79c6;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 80px;        
+        background: #0d0b1b;
+        font-size: 1.2rem !important;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+      }
+      
+      nav {
+        background: transparent; /* Default transparent for home */
+        transition: background-color 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        background: rgba(0, 0, 0, 0.9); /* Dark background when scrolled */
+      }
+
+      /* .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: #0d0b1b;
+        color: white;
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+      } */
+
+      .firstsection {
+        display: flex;
+        justify-content: space-around;
+        height: 100vh;
+        background: url(./images/background_img.jpg);
+        align-items: center;
+      }
+
+      .leftsection {
+        width: 30%;
+        font-size: 2rem;
+        margin: 40px 0px 0px 70px;
+      }
+
+      .rightsection {
+        width: 30%;
+        padding-top: 60px;
+      }
+      .rightsection img {
+        width: 70%;
+      }
+      h1 {
+        margin-bottom: 10px;
+        font-weight: lighter;
+      }
+
+      .text3 {
+        font-size: 50px;
+        margin-bottom: 50px;
+      }
+      .text4 {
+        color: rgb(205, 95, 248);
+      }
+      #element {
+        font-size: larger;
+        letter-spacing: 2px;
+      }
+       .section {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        width: 100%;
+        min-height: 100vh;
+        transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        padding-top: 150px;
+      }
+      .active {
+        visibility: visible;
+        opacity: 1;
+        position: relative;
+      } 
+     .section.active {
+        display: block;
+      }
+
+       .secondsection {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 50vh;
+      }
+
+      .left {
+        width: 40%;
+        font-size: 2rem;
+        margin: 70px 0px 1px 70px;
+        /* background-color: #ff4a8d; */
+      }
+
+      .right {
+        width: 30%;
+        padding-top: 60px;
+      }
+      .right img {
+        width: 80%;
+      }
+      .left h1 {
+        margin-bottom: 40px;
+        font-weight: lighter;
+      }
+
+      .about_text3 {
+        font-size: 25px;
+        margin-bottom: 1px;
+      }
+    
+      .projects-container {
+        display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 40px;
+        padding: 30px;
+        margin: 50px;
+      }
+      .project-card {
+        background: rgba(255, 255, 255, 0.1);
+        height: 500px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+       
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      }
+      .project-card img {
+        width: 100%;
+        border-radius: 5px;
+        padding-bottom: 20px;
+      }
+      .project-card p{
+       
+        padding-top: 10px;
+        font-size: 15px;
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      .certificate-container {
+        display: grid;
+        /* grid-template-columns: repeat(3, 1fr); */
+         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 40px;
+        padding: 30px;
+        margin: 50px;
+      }
+      .certificate-card {
+        background: rgba(255, 255, 255, 0.1);
+        height: 230px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+       
+      }
+
+      .certificate-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      }
+      .certificate-card img {
+        width: 100%;
+        border-radius: 5px;
+        padding-bottom: 10px;
+        
+      }
+      
+      .btn {
+        background: #ff79c6;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+        transition: background 0.3s ease;
+        cursor: pointer;
+        
+      }
+      .btn:hover {
+        background: #ff4a8d;
+      }
+      .contact-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+        background: #ffffff;
+        color: #000;
+        border-radius: 10px;
+        width: 50%;
+        margin: 50px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      .contact-section h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .contact-section input,
+      .contact-section textarea {
+        width: 600px;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        align-items:initial;
+      }
+      .contact-section button {
+        background: #ff79c6;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .contact-section button:hover {
+        background: #ff4a8d;
+      }
+
+      
+    </style>
+    <script>
+      
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector("nav");
+    
+        function updateNavbarColor() {
+          const homeSection = document.getElementById("home");
+          const homeRect = homeSection.getBoundingClientRect();
+    
+          if (homeRect.top >= 0 && homeRect.bottom <= window.innerHeight) {
+            navbar.classList.remove("scrolled"); // Transparent on Home
+          } else {
+            navbar.classList.add("scrolled"); // Dark color elsewhere
+          }
+        }
+    
+        window.addEventListener("scroll", updateNavbarColor);
+        window.addEventListener("load", updateNavbarColor);
+      });
+
+
+      function showSection(sectionId) {
+        document.querySelectorAll(".section").forEach((section) => {
+          section.classList.remove("active");
+        });
+        let activeSection = document.getElementById(sectionId);
+        activeSection.classList.add("active");
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        showSection("home");
+      });
+
+     
+
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home" onclick="showSection('home')">Home</a></li>
+          <li><a href="#about" onclick="showSection('about')">About</a></li>
+          <li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
+          <li><a href="#certificates" onclick="showSection('certificates')">Certificates</a></li>
+           <li><a href="#contact" onclick="showSection('contact')">Contact Me</a></li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home" class="firstsection">
+      <div class="leftsection">
+        <h1 class="text1">
+          Hi, There!
+          <span class="wave">👋</span>
+        </h1>
+        <div class="text3">
+          I'm
+          <strong class="text4">Mrunal Divate</strong>
+        </div>
+        <!-- <div class="text5">A Web Developer...</div> -->
+        <span id="element"></span>
+      </div>
+      <div class="rightsection">
+        <img src="./images/PngItem_5312066.png" />
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="secondsection">
+        <div class="left">
+        <h1 class="about_text1">
+         Know Who I'm
+        </h1>
+        <div class="about_text3">
+         Hi Everyone, I am Mrunal Divate from Nashik, India.
+         I'm third year student currently pursuing my Bachelor of Engineering degree in computer. 
+         A passionate Web Developer.I love building responsive and dynamic web applications
+         With experience in frontend and backend development,
+        I specialize in creating user-friendly and scalable digital experiences.
+        </div>
+      </div>
+      <div class="right">
+        <img src="./images/PngItem_1272138 (1).png" />
+      </div>
+      </div>
+    </section>
+    <section id="projects" class="section">
+        <h1 style="font-size: 40px">My Recent <span style="color: #ff79c6; font-size:40px;">Works</span></h1>
+        <div class="projects-container">
+          <div class="project-card">
+            <img src="./images/project1.png" alt="Project 1" />
+             <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;">Car Information Website</span>
+            <p>🚗Car Info Hub is an interactive web application that provides detailed information about 
+              various cars. It features a clean and user-friendly design with visually appealing car cards, 
+              making it easy to explore different models.Allows users to add new entries, ensuring flexibility and customization.  
+             This project delivers a smooth and responsive experience, making it perfect for car enthusiasts and researchers alike! 🚀</p>
+            <a href="https://github.com/runal2004/js" target="_blank" class="btn">GitHub</a>
+            <a href="https://runal2004.github.io/js/" target="_blank" class="btn">Demo</a>
+          </div>
+          <div class="project-card">
+            <img src="./images/digital-library-system.jpg" alt="Project 2" />
+            <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;">Book-Record-Management</span>
+            <p>Book Record Management API
+               Backend project built with JavaScript, Node.js, and Express.js. A RESTful API designed for managing book records 
+               and user subscriptions. The API provides endpoints to create, read, update, and delete book records, along with handling 
+               subscription details and fine calculations.Implemented dynamic subscription logic by converting dates to days and 
+               calculating expiration.Ensured data integrity by validating incoming requests and handling duplicate records.</p>
+            <a href="https://github.com/runal2004/Book-Record-Management" target="_blank" class="btn">GitHub</a>
+          </div>
+          <div class="project-card">
+            <img src="./images/project3.png" alt="Project 3" />
+            <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;">To-Do-List</span>
+            <p>📝To-Do List Web App is a simple yet efficient task management tool designed to help users 
+              organize their daily activities. With a clean and interactive interface, 
+              users can effortlessly add, edit, and delete tasks as needed.Built using HTML, CSS, and JavaScript, 
+              this to-do list ensures a smooth user experience with real-time updates and dynamic interactions. 
+              Stay productive and keep track of your tasks with ease! ✅</p>
+            <a href="https://github.com/runal2004/to-do-list" target="_blank" class="btn">GitHub</a>
+            <a href="https://runal2004.github.io/to-do-list/" target="_blank" class="btn">Demo</a>
+          </div>
+          
+          <div class="project-card">
+            <img src="./images/project4.png" alt="Project 2" />
+            <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;">FullyRaw web page</span>
+            <p>I created a frontend landing page for FullyRaw, a platform led by speaker and raw vegan 
+              activist Kristina Carrillo-Bucaram. The website educates and guides individuals who 
+              want to transform their health through a raw vegan lifestyle. Inspired by Kristina’s 
+              journey of overcoming Type II Diabetes.The goal of this landing page is to promote awareness, 
+              inspire healthy living, and provide easy access to these resources in a visually engaging and user-friendly way.</p>
+            <a href="https://github.com/runal2004/Octanet-august" target="_blank" class="btn">GitHub</a>
+            <a href="https://runal2004.github.io/Octanet-august/#" target="_blank" class="btn">Demo</a>
+
+          
+        </div>
+    </section>
+    <section id="certificates" class="section">
+        <h2>Certificates</h2>
+        <div class="certificate-container">
+          <div class="certificate-card">
+            <img src="./images/Nasa international hackathon .jpg" alt="certificate 1" />
+            <span style="font-family:'Courier New', Courier, monospace; font-size: 20px; font-weight: bold; ">NASA International Hackathon</span>  
+                     
+          </div>
+           <div class="certificate-card">
+            <img src="./images/jpmorgan.png" alt="certificate 2" />
+            <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;font-weight: bold;">JpMorgan Internship</span>           
+          </div>
+           <div class="certificate-card">
+            <img src="./images/google.png" alt="certificate -" />
+            <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;font-weight: bold;">Google Analytics</span>           
+          </div>
+           <div class="certificate-card">
+            <img src="./images/deloitte.png" alt="certificate 3" />
+            <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;font-weight: bold;">Deloitte Internship</span>           
+          </div>
+           <div class="certificate-card" style="height: 260px;">
+            <img src="./images/sih.png" alt="certificate 4" />
+            <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;font-weight: bold;">Smart India Hackathon</span>           
+          </div>
+           <div class="certificate-card">
+            <img src="./images/octanet.png" alt="certificate 5" />
+            <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;font-weight: bold;">Octanet Internship</span>           
+          </div>
+        </div>
+    </section>
+    <section id="contact" class="section">
+      <!-- <div class="contact-section">
+        <h2 style=" margin-bottom: 20px;
+          color: #333;">Let's Get In Touch.</h2>
+        <form >
+          <input type="text" placeholder="Enter your full name..." required />
+          <input
+          type="email"
+          placeholder="Enter your email address..."
+          required
+          />
+          <input type="tel" placeholder="Enter your phone number..." />
+          <textarea
+          rows="4"
+          placeholder="Enter your message..."
+          required
+          ></textarea>
+          <button type="submit">Submit Form</button>
+        </form>
+      </div> -->     
+       <div class="contact-section">
+        <h2 style="margin-bottom: 20px; color: #333;">Contact Me</h2>
+        <form action="https://formspree.io/f/mkgoepzy" method="POST">
+          <div> 
+            <input type="text" id="name" name="name" placeholder="Enter your full name..." required />
+          </div>    
+          <div>            
+            <input type="email" id="email" name="email" placeholder="Enter your email address..." required />
+          </div>    
+          <div>            
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number..." />
+          </div>    
+          <div>           
+            <textarea id="message" name="message" rows="4" placeholder="Enter your message..." required></textarea>
+          </div>    
+          <button type="submit">Submit Form</button>
+        </form>
+      </div>
+    </section>
+     
+      <footer>
+        <div
+          class="social-icons"
+          style="
+            /* margin-bottom: 5px; */
+            height:10%;
+            text-align: center;
+            padding: 5px 0px;
+            /* background: rgba(0, 0, 0, 0.9); */
+            background-color: rgb(10, 4, 22);
+          "
+        >
+          <a
+            href="https://linkedin.com/in/yourprofile"
+            target="_blank"
+            style="color: white; margin: 0 10px; font-size: 20px"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="https://github.com/yourprofile"
+            target="_blank"
+            style="color: white; margin: 0 10px; font-size: 20px"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://twitter.com/in/yourprofile"
+            target="_blank"
+            style="color: white; margin: 0 10px; font-size: 20px"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a
+            href="https://messenger.com/in/yourprofile"
+            target="_blank"
+            style="color: white; margin: 0 10px; font-size: 20px"
+            ><i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </footer>
+    </main>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed("#element", {
+        strings: ["A Web Developer", "A Web Developer"],
+        typeSpeed: 50,
+      });
+    </script>
+  </body>
+</html>
